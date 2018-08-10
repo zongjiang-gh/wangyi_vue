@@ -1,21 +1,18 @@
-# wangyiyanxuan_vue
+## 网易严选
 
-> A Vue.js project
+### 项目描述
 
-## Build Setup
+1. 此项目为一个关于电商的WebApp(SPA)
+2. 包括六个主路由:首页,识物,分类,购物车,个人,登录/注册
+3. 将要使用Vue技术栈、ES6、webpack等前端最新技术
+4. 采用模块化、组件化、工程化的模式开发
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+### 项目的编码阶段
 
-# build for production with minification
-npm run build
+#### day01路由的搭建及静态页面
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+1.搭建好了环境和路由
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2.开始写静态页面
+
