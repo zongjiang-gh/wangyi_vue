@@ -15,27 +15,42 @@ export default new Router({
     {
       path: '/home',
       name: '首页',
-      component: Home
+      component: Home,
+      meta: {
+        footShow: true
+      }
     },
     {
       path: '/topic',
       name: '识物',
-      component: Topic
+      component: Topic,
+      meta: {
+        footShow: true
+      }
     },
     {
       path: '/catelist',
       name: '分类',
-      component: CateList
+      component: CateList,
+      meta: {
+        footShow: true
+      }
     },
     {
       path: '/cart',
       name: '购物车',
-      component: Cart
+      component: Cart,
+      meta: {
+        footShow: true
+      }
     },
     {
       path: '/ucenter',
       name: '个人',
-      component: Ucenter
+      component: Ucenter,
+      meta: {
+        footShow: true
+      }
     },
     {
       path: '/login',
