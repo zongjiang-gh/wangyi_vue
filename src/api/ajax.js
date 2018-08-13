@@ -13,12 +13,16 @@ export default function (path, data = {}, type = 'GET') {
         queryStr = '?' + queryStr.substring(0,queryStr.length-1)
       }
       promise =  axios.get(path + queryStr)
-    } else {
+    }
+    else {
       promise = axios.post(path, data)
     }
-    promise.then(response => {
+    promise
+      .then(response => {
       resolve(response.data)
-    }).catch(err => {
+    })
+      .catch(err => {
       reject(err);
     })
-  }
+  })
+}

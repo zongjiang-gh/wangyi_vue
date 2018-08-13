@@ -8,6 +8,8 @@ import CateList from '../pages/cateList/cateList'
 import Ucenter from '../pages/ucenter/ucenter'
 import Login from '../pages/login/login'
 
+import Recommend from '../pages/home/recommend/recommend'
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +20,17 @@ export default new Router({
       component: Home,
       meta: {
         footShow: true
-      }
+      },
+      children: [
+        {
+          path: '/home/recommend',
+          component: Recommend
+        },
+        {
+          path: '/home',
+          redirect:'/home/recommend'
+        }
+      ]
     },
     {
       path: '/topic',

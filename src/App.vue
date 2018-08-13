@@ -15,6 +15,8 @@ export default {
   },
   mounted () {
 
+
+    this.$store.dispatch('getHomeData')
   }
 }
 </script>
