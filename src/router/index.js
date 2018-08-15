@@ -7,6 +7,7 @@ import Cart from '../pages/cart/cart'
 import CateList from '../pages/cateList/cateList'
 import Ucenter from '../pages/ucenter/ucenter'
 import Login from '../pages/login/login'
+import FirstPage from '../pages/firstPage/firstPage'
 
 import Recommend from '../pages/home/recommend/recommend'
 
@@ -24,7 +25,10 @@ export default new Router({
       children: [
         {
           path: '/home/recommend',
-          component: Recommend
+          component: Recommend,
+          meta: {
+            footShow: true
+          }
         },
         {
           path: '/home',
@@ -59,10 +63,7 @@ export default new Router({
     {
       path: '/ucenter',
       name: '个人',
-      component: Ucenter,
-      meta: {
-        footShow: true
-      }
+      component: Ucenter
     },
     {
       path: '/login',
@@ -70,8 +71,13 @@ export default new Router({
       component: Login
     },
     {
+      path: '/interlayer',
+      name: '初始化页',
+      component: FirstPage
+    },
+    {
       path: '/',
-      redirect: '/home'
+      redirect: '/interlayer'
     }
   ]
 })

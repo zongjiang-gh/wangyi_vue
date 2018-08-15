@@ -1,30 +1,30 @@
 <template>
   <footer class="footer_guide border-1px">
-    <div class="guide_item" @click="goTo('/home')" :class="{on: isCurrent('/home')}">
+    <div class="guide_item" @click="goTo('/home')" :class="{on: isCurrent('home')}">
       <span class="item_icon">
         <i class="iconfont icon-shouye"></i>
       </span>
       <span>首页</span>
     </div>
-    <div class="guide_item" @click="goTo('/topic')" :class="{on: isCurrent('/topic')}">
+    <div class="guide_item" @click="goTo('/topic')" :class="{on: isCurrent('topic')}">
       <span class="item_icon">
         <i class="iconfont icon-hui"></i>
       </span>
       <span>识物</span>
     </div>
-    <div class="guide_item" @click="goTo('/catelist')" :class="{on: isCurrent('/catelist')}">
+    <div class="guide_item" @click="goTo('/catelist')" :class="{on: isCurrent('catelist')}">
       <span class="item_icon">
         <i class="iconfont icon-iconset0497"></i>
       </span>
       <span>分类</span>
     </div>
-    <div class="guide_item" @click="goTo('/cart')" :class="{on: isCurrent('/cart')}">
+    <div class="guide_item" @click="goTo('/cart')" :class="{on: isCurrent('cart')}">
       <span class="item_icon">
         <i class="iconfont icon-gouwuche"></i>
       </span>
       <span>购物车</span>
     </div>
-    <div class="guide_item" @click="goTo('/ucenter')" :class="{on: isCurrent('/ucenter')}">
+    <div class="guide_item" @click="goTo('/ucenter')" :class="{on: isCurrent('ucenter')}">
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>
@@ -41,7 +41,7 @@ export default {
       this.$router.replace(path)
     },
     isCurrent (path) {
-      return this.$route.path === path
+      return this.$route.path.split('/')[1] === path
     }
   }
 }

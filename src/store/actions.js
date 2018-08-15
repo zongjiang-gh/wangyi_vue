@@ -16,7 +16,6 @@ import {
 export default {
   async getHomeData ({commit},cb) {
     const result = await reqHomeData()
-    console.log(result)
     if(result.code === 0){
       commit(RECEIVE_HOME,{home:result.home})
     }
@@ -31,7 +30,6 @@ export default {
   },
   async getData ({commit},cb) {
     const result = await reqData()
-    console.log(result)
     if(result.code === 0){
       commit(RECEIVE_DATA,{data:result.data})
     }
@@ -39,8 +37,6 @@ export default {
   },
   async getNavData ({commit},cb) {
     const result = await reqNavData()
-  
-      console.log(result)
     if(result.code === 0){
       commit(RECEIVE_NAV,{nav:result.nav})
     }

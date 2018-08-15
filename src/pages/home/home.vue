@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <div class="home" ref="home">
     <div class="home-header-wrap">
       <div class="home-header">
-        <div class="open-app hide">
-          <i class="iconfont icon-guanbi"></i>
+        <div class="open-app " v-show="hide">
+          <i class="iconfont icon-guanbi" @click="handleHide"></i>
           <div class="open-content">
             <img src="../../asset/images/wangyi.png" alt="网易">
             <div class="open-text">
@@ -37,6 +37,23 @@
         <HomeFooter />
       </div>
     </div>
+    <div class="newUser" v-if="maskShow">
+      <i class="iconfont icon-guanbi" @click="maskShow = false"></i>
+      <div class="newUser-good">
+        <span>新人专享礼包</span>
+        <p>感谢使用网易严选, 已为你准备了一份专享礼</p>
+        <div class="newGood">
+          <img src="../../asset/images/crm.jpg" alt="毛巾">
+          <div class="newGoodContent">
+            <span class="title">埃及进口长绒棉毛巾</span>
+            <span class="name">Ralph Lauren</span>
+            <span class="price">￥32.00 <span class="old-price">￥199.00</span></span>
+          </div>
+        </div>
+        <div class="btn1">领券立减￥10.00</div>
+        <div class="btn2">查看更多特惠商品</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,7 +65,9 @@ export default {
   name: 'home',
   data () {
     return {
-      activeIndex: 0
+      activeIndex: 0,
+      hide: true,
+      maskShow: true
     }
   },
   mounted () {
@@ -77,6 +96,10 @@ export default {
           click: true
         })
       })
+    },
+    handleHide () {
+      this.hide = false
+      this.$refs.home.style.paddingTop = '2rem'
     }
   },
   components: {
@@ -96,7 +119,7 @@ export default {
     margin-left auto
     margin-right auto
     box-sizing border-box
-    padding-top 2rem
+    padding-top 3.24rem
     padding-bottom 1.5rem
     .home-header-wrap
       position relative
@@ -229,5 +252,99 @@ export default {
       .scroll-content
         min-height 2000px
 
+
+    .newUser
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background rgba(0,0,0,.5)
+      z-index 30
+      i
+        display block
+        position: absolute
+        top 1rem
+        right .5rem
+        color #fff
+        width 1rem
+        height 1rem
+        line-height 1rem
+        text-align center
+        border-radius 50%
+        border 1px solid #fff
+        font-size .5rem
+
+      .newUser-good
+        width 8.4rem
+        height 9.22667rem
+        background-color: #fff
+        border-radius .2rem
+        position: absolute
+        top 50%
+        left 50%
+        transform translate(-50%,-50%)
+        padding .3rem .3rem
+        box-sizing border-box
+        >span
+          display block
+          padding-top .3rem
+          font-size .55rem
+          font-weight 700
+          text-align center
+          &:first-child
+            color: #333
+            &::before,&::after
+              display inline-block
+              content: ''
+              width .6rem
+              height .05rem
+              background: #333
+              margin .2rem .2rem .15rem
+        >p
+          text-align center
+          color #aaa
+          margin .3rem 0 .5rem 0
+        .newGood
+          width 100%
+          height 3rem
+          background-color: #eee
+          display flex
+          flex-flow row nowrap
+          img
+            height 100%
+          .newGoodContent
+            padding .3rem
+            display flex
+            flex-flow column
+            span
+              margin-top .3rem
+              &.title
+                font-size .4rem
+              &.name
+                border-radius 3px
+                border 1px solid #aaa
+                line-height .4rem
+                width 2.4rem
+                text-align center
+              &.price
+                color b4282d
+                .old-price
+                  color #aaa
+                  text-decoration through
+        .btn1,.btn2
+          width 100%
+          height 1.25333rem
+          text-align center
+          margin-top .42667rem
+          border-radius 2px
+          line-height 1.25333rem
+          font-size .4rem
+        .btn1
+          background #b4282d
+          color #fff
+        .btn2
+          color #b4282d
+          border 1px solid #b4282d
 
 </style>

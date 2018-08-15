@@ -9,130 +9,90 @@
     <div class="scroll-wrap">
       <div class="scroll-content">
         <div class="topic-content">
-          <div class="topic-swiper-container-one">
+          <div class="topic-swiper-container-one" v-if="detail.banner">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../../asset/images/topic1.jpg" alt=""></div>
+            <div class="swiper-slide" v-for="(item,index) in detail.banner" :key="index"><img :src="item.picUrl" alt=""></div>
           </div>
         </div>
-          <div class="topic-swiper-container-two">
+          <div class="topic-swiper-container-two" v-if="detail.column">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
+              <div class="swiper-slide" v-for="(item,index) in detail.column" :key="index">
+                <img v-lazy="item.picUrl" alt="">
+                <span>{{item.title}}</span>
               </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
-              <div class="swiper-slide">
-                <img src="../../asset/images/xiaotu1.png" alt="">
-                <span>严选推荐</span>
-              </div>
+
             </div>
           </div>
           <Split />
-          <div class="exploreRcmds">
-            <div class="rcmds-header">为你推荐</div>
+          <div class="exploreRcmds" v-if="detail.recommendOne">
+            <div class="rcmds-header">{{detail.recommendOne.nickname}}</div>
             <div class="rcmds-img">
-              <img src="../../asset/images/topic1.jpg" alt="">
+              <img v-lazy="detail.recommendOne.picUrl" alt="">
               <p class="txt">
-                <span>严选恋爱博物馆</span>
-                <span>9.9元起</span>
+                <span>{{detail.recommendOne.title}}</span>
+                <span>{{detail.recommendOne.priceInfo}}元起</span>
               </p>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.recommendThree.avatar" alt="">
+                  <span>{{detail.recommendThree.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.recommendThree.title}}</h4>
+                <span class="txt">{{detail.recommendThree.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.recommendThree.picUrl" alt="">
               </div>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.recommendTwo.avatar" alt="">
+                  <span>{{detail.recommendTwo.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.recommendTwo.title}}</h4>
+                <span class="txt">{{detail.recommendTwo.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.recommendTwo.picUrl" alt="">
               </div>
             </div>
           </div>
-          <div class="exploreRcmds">
-            <div class="rcmds-header">为你推荐</div>
+          <div class="exploreRcmds" v-if="detail.zhenOne">
+            <div class="rcmds-header">{{detail.zhenOne.nickname}}</div>
             <div class="rcmds-img">
-              <img src="../../asset/images/topic1.jpg" alt="">
+              <img v-lazy="detail.zhenOne.picUrl" alt="">
               <p class="txt">
-                <span>严选恋爱博物馆</span>
-                <span>9.9元起</span>
+                <span>{{detail.zhenOne.title}}</span>
+                <span>{{detail.zhenOne.priceInfo}}元起</span>
               </p>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.zhenThree.avatar" alt="">
+                  <span>{{detail.zhenThree.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.zhenThree.title}}</h4>
+                <span class="txt">{{detail.zhenThree.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.zhenThree.picUrl" alt="">
               </div>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.zhenTwo.avatar" alt="">
+                  <span>{{detail.zhenTwo.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.zhenTwo.title}}</h4>
+                <span class="txt">{{detail.zhenTwo.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.zhenTwo.picUrl" alt="">
               </div>
             </div>
           </div>
@@ -164,52 +124,52 @@
             </div>
           </div>
           <Split />
-          <div class="exploreRcmds">
-            <div class="rcmds-header">为你推荐</div>
+          <div class="exploreRcmds" v-if="detail.zhenOne">
+            <div class="rcmds-header">{{detail.zhenOne.nickname}}</div>
             <div class="rcmds-img">
-              <img src="../../asset/images/topic1.jpg" alt="">
+              <img v-lazy="detail.zhenOne.picUrl" alt="">
               <p class="txt">
-                <span>严选恋爱博物馆</span>
-                <span>9.9元起</span>
+                <span>{{detail.zhenOne.title}}</span>
+                <span>{{detail.zhenOne.priceInfo}}元起</span>
               </p>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.zhenThree.avatar" alt="">
+                  <span>{{detail.zhenThree.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.zhenThree.title}}</h4>
+                <span class="txt">{{detail.zhenThree.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.zhenThree.picUrl" alt="">
               </div>
             </div>
             <div class="rcmds-item">
               <div class="left">
                 <div class="avatar">
-                  <img src="../../asset/images/avatar.png" alt="">
-                  <span>饮食组·肉肉</span>
+                  <img v-lazy="detail.zhenTwo.avatar" alt="">
+                  <span>{{detail.zhenTwo.nickname}}</span>
                 </div>
-                <h4 class="title">半价吃到鲜爽小龙虾</h4>
-                <span class="txt">7、8月的小龙虾肥美正当时，各个肉质饱满，细腻弹牙，吃起来一个接一个的，根本停不住。作为从不标题党的严选挑款师，我这次给大家带来了一个超大惊喜——8月20号之前，买一盒小龙虾只要加上9.9元，就能再得一盒，只要差不多一半的价格就能把2大盒小龙虾带回家。</span>
+                <h4 class="title">{{detail.zhenTwo.title}}</h4>
+                <span class="txt">{{detail.zhenTwo.subTitle}}</span>
               </div>
               <div class="right">
-                <img src="../../asset/images/xiaolongxia.jpg" alt="">
+                <img v-lazy="detail.zhenTwo.picUrl" alt="">
               </div>
             </div>
           </div>
           <Split />
-          <div class="exploreLook">
+          <div class="exploreLook" v-if="detail.yxLook">
             <div class="look-header">严选Look</div>
             <div class="look-img">
-              <img src="../../asset/images/cat1.jpg" alt="">
+              <img :src="detail.yxLook.picUrl" alt="">
               <div class="avatar">
-                <img src="../../asset/images/e2.jpg" alt="">
-                <span>free0322</span>
+                <img :src="detail.yxLook.avatar" alt="">
+                <span>free{{detail.yxLook.topicId}}</span>
               </div>
-              <span class="desc">美美哒，主子很满意，不时啃一啃，解决喵与花不可得兼的困扰😂</span>
+              <span class="desc">{{detail.yxLook.content}}</span>
             </div>
           </div>
           <div class="explor-more">
@@ -217,15 +177,13 @@
               <span>更多精彩</span>
               <div class="line"></div>
             </div>
-            <div class="explore-items">
+            <div class="explore-items" v-for="(item,index) in more" :key="index" v-if="detail.findMore">
               <div class="explore-item">
-                <img src="../../asset/images/more.jpg" alt="">
-                <div>Yessing系列首发，精选礼物浪漫七夕</div>
+                <img v-lazy="item.itemPicUrl" alt="">
+                <div>{{item.title}}</div>
               </div>
             </div>
-
           </div>
-          <div class="de"></div>
         </div>
       </div>
     </div>
@@ -239,29 +197,63 @@ import Swiper from 'swiper'
 import BScroll from 'better-scroll'
 export default {
   name: 'topic',
+  data () {
+    return {
+      hasMore: 0
+    }
+  },
   mounted () {
-    new Swiper('.topic-swiper-container-one', {
-      loop: true,
-      slidesPerView: 'auto',
-      centeredSlides: true
+    this.$store.dispatch('getDetailData',() => {
+      this.$nextTick(() => {
+        new Swiper('.topic-swiper-container-one', {
+          loop: true,
+          slidesPerView: 'auto',
+          centeredSlides: true
+        })
+        new Swiper('.topic-swiper-container-two', {
+          slidesPerView: 'auto',
+          freeMode: true,
+        })
+        new Swiper('.explore-swiper-container', {
+          slidesPerView: 'auto'
+        })
+      })
     })
-    new Swiper('.topic-swiper-container-two', {
-      slidesPerView: 'auto',
-      freeMode: true,
-    })
-    new BScroll('.scroll-wrap',{
-      click: true
-    })
-    new Swiper('.explore-swiper-container', {
-      slidesPerView: 'auto'
-    });
+
+  },
+  computed: {
+    ...mapState(['detail']),
+    more () {
+      if(this.detail.findMore){
+        if(this.hasMore === 0){
+          this.hasMore += 3
+        }
+        if(this.hasMore > this.detail.findMore.length) return this.detail.findMore
+        return this.detail.findMore.slice(0,this.hasMore)
+      }
+
+    }
+  },
+  watch: {
+    hasMore () {
+      this.$nextTick(() => {
+        if(this.scroll)return
+        this.scroll = new BScroll('.scroll-wrap',{
+          click:true
+        })
+        this.scroll.on('scrollEnd', () => {
+          this.hasMore += 3
+          this.scroll.refresh()
+        })
+      })
+    }
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
 .topic-wrap
-  padding 1.2rem 0 1.5rem 0
+  padding 1.2rem 0 1.3rem 0
   height 100%
   box-sizing border-box
 .topic-header
@@ -363,6 +355,7 @@ export default {
           display: block
           border-radius 50%
           float left
+          height 100%
         span
           display inline-block
           height .7rem
@@ -492,6 +485,8 @@ export default {
       img
         margin-right .3rem
         border-radius 50%
+        width .61rem
+        height .61rem
       span
         margin-top: .1rem
   .desc
@@ -503,7 +498,7 @@ export default {
 .explor-more
   width 100%
   background #eee
-  padding-bottom .4rem
+  padding-bottom .1rem
   .title
     margin 0 .4rem .4rem
     height 1.8667rem
@@ -545,6 +540,4 @@ export default {
         display block
         width 100%
         height 100%
-.de
-  height 5rem
 </style>

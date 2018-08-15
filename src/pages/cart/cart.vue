@@ -18,7 +18,7 @@
       <div class="cart-img">
         <img src="../../asset/images/cart.png" alt="">
         <span>去添加点什么吧</span>
-        <div>登录</div>
+        <div @click="$router.replace('/ucenter')">登录</div>
       </div>
     </div>
   </div>

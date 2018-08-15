@@ -4,7 +4,7 @@
       <h3 class="title">{{item.name}}好物</h3>
       <ul class="goodGuide-list">
         <li class="good-item" v-for="(itemGood,indexGood) in item.itemList" :key="indexGood">
-          <img :src="itemGood.listPicUrl" alt="">
+          <img v-lazy="itemGood.listPicUrl" alt="">
           <p class="better">{{itemGood.simpleDesc}}</p>
           <div class="youhui"><span>限量优惠</span></div>
           <div class="good-name">{{itemGood.name}}</div>

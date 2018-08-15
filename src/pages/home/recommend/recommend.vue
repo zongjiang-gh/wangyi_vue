@@ -4,7 +4,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in banner" :key="index">
-            <img :src="item.picUrl" alt="商品">
+            <img v-lazy="item.picUrl" alt="商品">
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -31,7 +31,7 @@
       </div>
       <ul class="brand-content">
         <li v-for="(item,index) in newTagList" :key="index">
-          <img :src="item.appListPicUrl" alt="衣服">
+          <img v-lazy="item.appListPicUrl" alt="衣服">
           <div class="productor">
             <h4>{{item.name}}</h4>
             <div>{{item.floorPrice}}</div>
@@ -57,7 +57,7 @@
             <li class="new-good swiper-slide" v-for="(item,index) in home.newItemList" :key="index">
               <a href="javascript:;">
                 <div class="good-img">
-                  <img :src="item.primaryPicUrl" alt="">
+                  <img v-lazy="item.primaryPicUrl" alt="">
                 </div>
                 <div class="good-anniversary" >限购</div>
                 <div class="good-name">{{item.name}}</div>
@@ -87,7 +87,7 @@
             <li class="popular swiper-slide" v-for="(item,index) in home.topicList" :key="index">
               <a href="javascript:;">
                 <div class="popular-img">
-                  <img :src="item.itemPicUrl" alt="">
+                  <img v-lazy="item.itemPicUrl" alt="">
                 </div>
                 <div class="popular-anniversary">七夕推荐</div>
                 <div class="popular-name">{{item.title}}</div>
@@ -203,8 +203,8 @@ export default {
     this.timer = setInterval(() => {
       let time = new Date();
       let hour = (this.startTime.hour - time.getHours() -1) > 9 ? (this.startTime.hour - time.getHours() -1) : '0' + (this.startTime.hour - time.getHours() -1)
-      let minutes = 59 - time.getMinutes()
-      let second = 59 - time.getSeconds()
+      let minutes = (59 - time.getMinutes()) > 9?(59 - time.getMinutes()) : '0' + (59 - time.getMinutes())
+      let second = (59 - time.getSeconds()) > 9? (59 - time.getSeconds()): '0' + (59 - time.getSeconds())
       this.time = {hour,minutes, second}
     },1000)
   },
